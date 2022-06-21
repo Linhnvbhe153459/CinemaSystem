@@ -1,4 +1,11 @@
-<!DOCTYPE HTML>
+<%-- 
+    Document   : Login
+    Created on : 21-06-2022, 16:33:44
+    Author     : Baoli
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html lang="zxx">
 	
 <head>
@@ -47,10 +54,18 @@
 							<input type="text"/>
 							<button><i class="icofont icofont-search"></i></button>
 						</form>
+                                            <c:if test="${sessionScope.user == null}">
 						<ul>
 							<li><a href="#">Welcome Guest!</a></li>
 							<li><a class="login-popup" href="#">Login</a></li>
 						</ul>
+                                            </c:if>
+                                            <c:if test="${sessionScope.user != null}">
+						<ul>
+							<li><a href="#">Welcome ${name}!</a></li>
+							<li><a class="login-popup" href="#">Logout</a></li>
+						</ul>
+                                            </c:if>
 					</div>
 					<div class="menu-area">
 						<div class="responsive-menu"></div>
@@ -79,10 +94,10 @@
 				<a href="#"><i class="icofont icofont-close"></i></a>
 				<h2>LOGIN</h2>
 				<form action="#" method="POST">
-					<h6>USERNAME OR EMAIL ADDRESS</h6>
-                                        <input type="text" name="account"/>
+					<h6>USERNAME</h6>
+                                        <input type="text" name="username" style="color: black"/>
 					<h6>PASSWORD</h6>
-                                        <input type="text" name="password"/>
+                                        <input type="text" name="password" style="color: black"/>
 					<div class="login-remember">
 						<input type="checkbox" />
 						<span>Remember Me</span>
@@ -90,7 +105,7 @@
 					<div class="login-signup">
 						<span>SIGNUP</span>
 					</div>
-                                        <a href="#" class="theme-btn">LOG IN</a>
+                                        <a href="Login" class="theme-btn">LOG IN</a>
 					<span>Or Via Social</span>
 					<div class="login-social">
 						<a href="#"><i class="icofont icofont-social-facebook"></i></a>
